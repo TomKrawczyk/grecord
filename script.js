@@ -15,6 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // Initialize scroll reveal animations
+    initScrollReveal();
+    
+    // Initialize chat widget
+    initChatWidget();
 });
 
 // Smooth scroll for anchor links
@@ -105,32 +111,29 @@ function scrollToSection(event, selector, index) {
     }
 }
 
-// Add scroll animation to elements
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// Scroll reveal animation system
+function initScrollReveal() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, observerOptions);
 
-// Observe elements with animation
-document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.service-card, .portfolio-item, .feature-item, .testimonial-card, .mission-card, .team-member, .equipment-card');
+    // Add scroll-reveal class to elements
+    const animatedElements = document.querySelectorAll('.service-card, .portfolio-item, .feature-item, .testimonial-card, .mission-card, .team-member, .equipment-card, .video-wrapper, .pricing-column');
     
     animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.classList.add('scroll-reveal');
         observer.observe(el);
     });
-});
+}
 
 // Header scroll effect
 let lastScroll = 0;
@@ -167,4 +170,109 @@ window.addEventListener('load', function() {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
     }, 100);
+});
+
+// ===== CHAT WIDGET FUNCTIONALITY =====
+function initChatWidget() {
+    const chatButton = document.getElementById('chatButton');
+    const chatPanel = document.getElementById('chatPanel');
+    const chatClose = document.getElementById('chatClose');
+    const chatOptions = document.getElementById('chatOptions');
+    const quickContactForm = document.getElementById('quickContactForm');
+    const backButton = document.getElementById('backButton');
+    
+    if (!chatButton || !chatPanel) return;
+    
+    // Toggle chat panel
+    chatButton.addEventListener('click', function() {
+        chatPanel.classList.toggle('active');
+        // Reset to options view when opening
+        if (chatPanel.classList.contains('active')) {
+            showChatOptions();
+        }
+    });
+    
+    // Close chat panel
+    chatClose.addEventListener('click', function() {
+        chatPanel.classList.remove('active');
+    });
+    
+    // Chat option handlers
+    document.querySelectorAll('.chat-option').forEach(option => {
+        option.addEventListener('click', function() {
+            const action = this.getAttribute('data-action');
+            
+            switch(action) {
+                case 'call':
+                    window.location.href = 'tel:+48607200066';
+                    break;
+                case 'email':
+                    window.location.href = 'mailto:kontakt@grecord.pl';
+                    break;
+                case 'form':
+                    showQuickContactForm();
+                    break;
+                case 'whatsapp':
+                    window.open('https://wa.me/48607200066', '_blank');
+                    break;
+            }
+        });
+    });
+    
+    // Back button
+    if (backButton) {
+        backButton.addEventListener('click', function() {
+            showChatOptions();
+        });
+    }
+    
+    // Quick contact form submission
+    const quickForm = document.getElementById('quickFormElement');
+    if (quickForm) {
+        quickForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('quickName').value;
+            const email = document.getElementById('quickEmail').value;
+            const message = document.getElementById('quickMessage').value;
+            
+            if (!name || !email || !message) {
+                alert('Proszę wypełnić wszystkie pola.');
+                return;
+            }
+            
+            // Show success message
+            alert('Dziękujemy za wiadomość! Skontaktujemy się z Tobą wkrótce.');
+            
+            // Reset form and close
+            quickForm.reset();
+            chatPanel.classList.remove('active');
+            showChatOptions();
+        });
+    }
+    
+    function showChatOptions() {
+        if (chatOptions && quickContactForm) {
+            chatOptions.style.display = 'flex';
+            quickContactForm.classList.remove('active');
+        }
+    }
+    
+    function showQuickContactForm() {
+        if (chatOptions && quickContactForm) {
+            chatOptions.style.display = 'none';
+            quickContactForm.classList.add('active');
+        }
+    }
+}
+
+document.addEventListener('click', function(event) {
+    const chatWidget = document.querySelector('.chat-widget');
+    const chatPanel = document.getElementById('chatPanel');
+    
+    if (chatWidget && chatPanel && chatPanel.classList.contains('active')) {
+        if (!chatWidget.contains(event.target)) {
+            chatPanel.classList.remove('active');
+        }
+    }
 });
