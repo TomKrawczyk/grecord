@@ -122,7 +122,7 @@
             <div class="footer-section">
                 <h3>Kontakt</h3>
                 <p>Zagnańska 84a<br>25-558 Kielce, Polska</p>
-                <p>Tel: +48 607 200 066<br>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="790a0d0c1d1016391e540b1c1a160b1d570915">[email&#160;protected]</a></p>
+                <p>Tel: +48 607 200 066<br>Email: <a href="/cdn-cgi/l/email-protection#6b0004051f0a001f2b0c190e0804190f451b07"><span class="__cf_email__" data-cfemail="3f5450514b5e544b7f584d5a5c504d5b114f53">[email&#160;protected]</span></a></p>
             </div>
             <div class="footer-section">
                 <h3>Informacje</h3>
@@ -139,7 +139,72 @@
         </div>
     </footer>
 
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-button" id="chatButton" aria-label="Otwórz czat">
+            💬
+        </button>
+        
+        <div class="chat-panel" id="chatPanel">
+            <div class="chat-header">
+                <h3>Szybki kontakt</h3>
+                <button class="chat-close" id="chatClose" aria-label="Zamknij czat">×</button>
+            </div>
+            
+            <div class="chat-body">
+                <div class="chat-options" id="chatOptions">
+                    <div class="chat-option" data-action="call">
+                        <span class="chat-option-icon">📞</span>
+                        <div>
+                            <strong>Zadzwoń teraz</strong>
+                            <p style="margin: 0; font-size: 12px; color: #7a7a7a;">+48 607 200 066</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-option" data-action="email">
+                        <span class="chat-option-icon">✉️</span>
+                        <div>
+                            <strong>Wyślij email</strong>
+                            <p style="margin: 0; font-size: 12px; color: #7a7a7a;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d4bfbbbaa0b5bfa094b3a6b1b7bba6b0faa4b8">[email&#160;protected]</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-option" data-action="form">
+                        <span class="chat-option-icon">📝</span>
+                        <div>
+                            <strong>Formularz kontaktowy</strong>
+                            <p style="margin: 0; font-size: 12px; color: #7a7a7a;">Wypełnij szybki formularz</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-option" data-action="whatsapp">
+                        <span class="chat-option-icon">💚</span>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <p style="margin: 0; font-size: 12px; color: #7a7a7a;">Napisz na WhatsApp</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-contact-form" id="quickContactForm">
+                    <button class="back-button" id="backButton">← Powrót</button>
+                    <form id="quickFormElement">
+                        <div class="form-group">
+                            <input type="text" id="quickName" placeholder="Twoje imię" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="quickEmail" placeholder="Twój email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="quickMessage" placeholder="Twoja wiadomość" required></textarea>
+                        </div>
+                        <button type="submit">Wyślij wiadomość</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="./script.js"></script>
 </body>
-
 </html>
