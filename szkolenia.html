@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="G-Record - Platforma Szkoleniowa">
+    <title>Platforma Szkoleniowa - G-Record</title>
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        /* Training Platform Specific Styles */
+        .training-platform {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f0ea 0%, #e8dfd5 100%);
+        }
+
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .login-box h2 {
+            color: #5a5a5a;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .login-tab {
+            flex: 1;
+            padding: 15px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: #7a7a7a;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .login-tab.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .dashboard-container {
+            display: none;
+            padding: 40px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .dashboard-container.active {
+            display: block;
+        }
+
+        .dashboard-header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-info h2 {
+            color: #5a5a5a;
+            margin-bottom: 5px;
+        }
+
+        .user-info p {
+            color: #7a7a7a;
+            margin: 0;
+        }
+
+        .logout-btn {
+            padding: 12px 30px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .course-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            color: white;
+        }
+
+        .course-info {
+            padding: 25px;
+        }
+
+        .course-info h3 {
+            color: #5a5a5a;
+            margin-bottom: 10px;
+        }
+
+        .course-info p {
+            color: #7a7a7a;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .course-duration {
+            color: #7a7a7a;
+            font-size: 14px;
+        }
+
+        .course-lessons {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            color: #7a7a7a;
+            text-align: right;
+        }
+
+        .course-viewer {
+            display: none;
+            padding: 40px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .course-viewer.active {
+            display: block;
+        }
+
+        .viewer-header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-to-dashboard {
+            padding: 10px 25px;
+            background: #e0e0e0;
+            color: #5a5a5a;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-dashboard:hover {
+            background: #d0d0d0;
+        }
+
+        .course-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+
+        .video-section {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-player {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+
+        .video-details {
+            padding: 30px;
+        }
+
+        .video-details h2 {
+            color: #5a5a5a;
+            margin-bottom: 15px;
+        }
+
+        .video-details p {
+            color: #7a7a7a;
+            line-height: 1.8;
+        }
+
+        .lesson-list {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-height: 800px;
+            overflow-y: auto;
+        }
+
+        .lesson-list h3 {
+            color: #5a5a5a;
+            margin-bottom: 20px;
+        }
+
+        .lesson-item {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lesson-item:hover {
+            border-color: #2563eb;
+            background: #f8faff;
+        }
+
+        .lesson-item.active {
+            border-color: #2563eb;
+            background: #f0f7ff;
+        }
+
+        .lesson-item.completed {
+            background: #f0fdf4;
+            border-color: #22c55e;
+        }
+
+        .lesson-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #5a5a5a;
+            flex-shrink: 0;
+        }
+
+        .lesson-item.active .lesson-number {
+            background: #2563eb;
+            color: white;
+        }
+
+        .lesson-item.completed .lesson-number {
+            background: #22c55e;
+            color: white;
+        }
+
+        .lesson-info {
+            flex: 1;
+        }
+
+        .lesson-title {
+            font-weight: 600;
+            color: #5a5a5a;
+            margin-bottom: 5px;
+        }
+
+        .lesson-duration {
+            font-size: 12px;
+            color: #7a7a7a;
+        }
+
+        .materials-section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .materials-section h3 {
+            color: #5a5a5a;
+            margin-bottom: 20px;
+        }
+
+        .material-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .material-item:hover {
+            border-color: #2563eb;
+            background: #f8faff;
+        }
+
+        .material-icon {
+            font-size: 32px;
+        }
+
+        .material-info {
+            flex: 1;
+        }
+
+        .material-name {
+            font-weight: 600;
+            color: #5a5a5a;
+            margin-bottom: 3px;
+        }
+
+        .material-size {
+            font-size: 12px;
+            color: #7a7a7a;
+        }
+
+        .download-btn {
+            padding: 8px 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 1024px) {
+            .course-content {
+                grid-template-columns: 1fr;
+            }
+
+            .lesson-list {
+                max-height: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .login-box {
+                padding: 30px;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">G-Record</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="uslugi.html">Usługi</a></li>
+                <li><a href="realizacje.html">Realizacje</a></li>
+                <li><a href="o-nas.html">O nas</a></li>
+                <li><a href="sprzet.html">Sprzęt</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="polityka.html">Polityka</a></li>
+                <li><a href="szkolenia.html" class="active">Platforma szkoleniowa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="training-platform">
+        <!-- Login/Register Section -->
+        <div class="login-container" id="loginContainer">
+            <div class="login-box">
+                <h2>Platforma Szkoleniowa G-Record</h2>
+                
+                <div class="login-tabs">
+                    <button class="login-tab active" onclick="switchTab('login')">Logowanie</button>
+                    <button class="login-tab" onclick="switchTab('register')">Rejestracja</button>
+                </div>
+
+                <!-- Login Form -->
+                <div class="tab-content active" id="loginTab">
+                    <form onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="loginEmail" required placeholder="twoj@email.pl">
+                        </div>
+                        <div class="form-group">
+                            <label>Hasło</label>
+                            <input type="password" id="loginPassword" required placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="cta-button cta-primary" style="width: 100%; justify-content: center;">
+                            Zaloguj się
+                        </button>
+                    </form>
+                    <p style="text-align: center; margin-top: 20px; color: #7a7a7a; font-size: 14px;">
+                        Demo: użyj dowolnego emaila i hasła
+                    </p>
+                </div>
+
+                <!-- Register Form -->
+                <div class="tab-content" id="registerTab">
+                    <form onsubmit="handleRegister(event)">
+                        <div class="form-group">
+                            <label>Imię i nazwisko</label>
+                            <input type="text" id="registerName" required placeholder="Jan Kowalski">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="registerEmail" required placeholder="twoj@email.pl">
+                        </div>
+                        <div class="form-group">
+                            <label>Hasło</label>
+                            <input type="password" id="registerPassword" required placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="cta-button cta-primary" style="width: 100%; justify-content: center;">
+                            Zarejestruj się
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div class="dashboard-container" id="dashboardContainer">
+            <div class="dashboard-header">
+                <div class="user-info">
+                    <h2>Witaj, <span id="userName">Użytkowniku</span>!</h2>
+                    <p>Kontynuuj naukę i rozwijaj swoje umiejętności</p>
+                </div>
+                <button class="logout-btn" onclick="handleLogout()">Wyloguj się</button>
+            </div>
+
+            <h2 style="color: #5a5a5a; margin-bottom: 30px;">Twoje kursy</h2>
+            <div class="courses-grid" id="coursesGrid"></div>
+        </div>
+
+        <!-- Course Viewer Section -->
+        <div class="course-viewer" id="courseViewer">
+            <div class="viewer-header">
+                <h2 style="color: #5a5a5a; margin: 0;" id="courseTitle">Nazwa kursu</h2>
+                <button class="back-to-dashboard" onclick="backToDashboard()">← Powrót do kursów</button>
+            </div>
+
+            <div class="course-content">
+                <div>
+                    <div class="video-section">
+                        <div class="video-player" id="videoPlayer">
+                            <iframe width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="videoIframe"></iframe>
+                        </div>
+                        <div class="video-details">
+                            <h2 id="lessonTitle">Tytuł lekcji</h2>
+                            <p id="lessonDescription">Opis lekcji</p>
+                        </div>
+                    </div>
+
+                    <div class="materials-section">
+                        <h3>Materiały do pobrania</h3>
+                        <div id="materialsContainer"></div>
+                    </div>
+                </div>
+
+                <div class="lesson-list">
+                    <h3>Lista lekcji</h3>
+                    <div id="lessonsContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>G-Record</h3>
+                <p>Profesjonalna produkcja wideo<br>Łączymy świat rzeczywisty z cyfrowym</p>
+            </div>
+            <div class="footer-section">
+                <h3>Nawigacja</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="uslugi.html">Usługi</a></li>
+                    <li><a href="realizacje.html">Realizacje</a></li>
+                    <li><a href="o-nas.html">O nas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p>Zagnańska 84a<br>25-558 Kielce, Polska</p>
+                <p>Tel: +48 607 200 066<br>Email: <a href="/cdn-cgi/l/email-protection#107b7f7e64717b6450776275737f62743e607c"><span class="__cf_email__" data-cfemail="640f0b0a10050f1024031601070b16004a1408">[email&#160;protected]</span></a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Informacje</h3>
+                <ul>
+                    <li><a href="sprzet.html">Sprzęt</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="polityka.html">Polityka prywatności</a></li>
+                    <li><a href="szkolenia.html">Platforma szkoleniowa</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 G-Record. Wszystkie prawa zastrzeżone. | NIP: 732947723</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="./script.js"></script>
+    <script>
+        // Sample course data
+        const coursesData = [
+            {
+                id: 1,
+                title: "Podstawy produkcji wideo",
+                description: "Naucz się podstaw filmowania i montażu wideo od profesjonalistów",
+                icon: "🎬",
+                duration: "4 godz.",
+                lessons: 12,
+                progress: 35,
+                videos: [
+                    { title: "Wprowadzenie do produkcji wideo", duration: "15 min", url: "https://www.youtube.com/embed/tP2pHFoKb2A", description: "Poznaj podstawy produkcji wideo i dowiedz się, czego potrzebujesz, aby zacząć." },
+                    { title: "Wybór odpowiedniego sprzętu", duration: "20 min", url: "https://www.youtube.com/embed/5OWtYP2i9sc", description: "Przegląd kamer, obiektywów i akcesoriów niezbędnych do profesjonalnej produkcji." },
+                    { title: "Kompozycja kadru", duration: "18 min", url: "https://www.youtube.com/embed/9XTnAoP8OrQ", description: "Zasady kompozycji, które sprawią, że Twoje filmy będą wyglądać profesjonalnie." },
+                    { title: "Oświetlenie w praktyce", duration: "25 min", url: "https://www.youtube.com/embed/tP2pHFoKb2A", description: "Jak wykorzystać światło naturalne i sztuczne do stworzenia idealnego kadru." }
+                ],
+                materials: [
+                    { name: "Przewodnik po sprzęcie.pdf", size: "2.5 MB", icon: "📄" },
+                    { name: "Szablony montażowe.zip", size: "15 MB", icon: "📦" }
+                ]
+            },
+            {
+                id: 2,
+                title: "Zaawansowany montaż wideo",
+                description: "Opanuj zaawansowane techniki montażu i efekty specjalne",
+                icon: "✂️",
+                duration: "6 godz.",
+                lessons: 18,
+                progress: 0,
+                videos: [
+                    { title: "Interfejs programu montażowego", duration: "20 min", url: "https://www.youtube.com/embed/5OWtYP2i9sc", description: "Zapoznaj się z interfejsem i podstawowymi narzędziami." },
+                    { title: "Techniki cięcia i przejść", duration: "30 min", url: "https://www.youtube.com/embed/9XTnAoP8OrQ", description: "Naucz się profesjonalnych technik montażu i płynnych przejść." },
+                    { title: "Korekcja kolorów", duration: "25 min", url: "https://www.youtube.com/embed/tP2pHFoKb2A", description: "Jak nadać filmom profesjonalny wygląd poprzez korekcję kolorów." }
+                ],
+                materials: [
+                    { name: "Presets kolorystyczne.zip", size: "8 MB", icon: "🎨" },
+                    { name: "Efekty dźwiękowe.zip", size: "25 MB", icon: "🔊" }
+                ]
+            },
+            {
+                id: 3,
+                title: "Streaming i transmisje na żywo",
+                description: "Wszystko o streamingu, od konfiguracji po profesjonalną realizację",
+                icon: "📡",
+                duration: "3 godz.",
+                lessons: 10,
+                progress: 60,
+                videos: [
+                    { title: "Wprowadzenie do streamingu", duration: "15 min", url: "https://www.youtube.com/embed/9XTnAoP8OrQ", description: "Podstawy streamingu i wybór platformy." },
+                    { title: "Konfiguracja sprzętu", duration: "25 min", url: "https://www.youtube.com/embed/tP2pHFoKb2A", description: "Jak skonfigurować sprzęt do profesjonalnego streamingu." },
+                    { title: "Oprogramowanie do streamingu", duration: "20 min", url: "https://www.youtube.com/embed/5OWtYP2i9sc", description: "Przegląd najpopularniejszych programów do streamingu." }
+                ],
+                materials: [
+                    { name: "Checklist streamingu.pdf", size: "1.2 MB", icon: "✅" },
+                    { name: "Overlaye i grafiki.zip", size: "12 MB", icon: "🖼️" }
+                ]
+            },
+            {
+                id: 4,
+                title: "Dźwięk w produkcji wideo",
+                description: "Profesjonalny dźwięk to połowa sukcesu - naucz się go opanować",
+                icon: "🎙️",
+                duration: "5 godz.",
+                lessons: 15,
+                progress: 20,
+                videos: [
+                    { title: "Podstawy akustyki", duration: "18 min", url: "https://www.youtube.com/embed/tP2pHFoKb2A", description: "Zrozum podstawy akustyki i jak wpływają na jakość nagrań." },
+                    { title: "Mikrofony i ich zastosowanie", duration: "22 min", url: "https://www.youtube.com/embed/5OWtYP2i9sc", description: "Rodzaje mikrofonów i kiedy ich używać." },
+                    { title: "Nagrywanie czystego dźwięku", duration: "25 min", url: "https://www.youtube.com/embed/9XTnAoP8OrQ", description: "Techniki nagrywania wysokiej jakości dźwięku." }
+                ],
+                materials: [
+                    { name: "Biblioteka dźwięków.zip", size: "50 MB", icon: "🎵" },
+                    { name: "Poradnik mikrofonów.pdf", size: "3 MB", icon: "📖" }
+                ]
+            }
+        ];
+
+        let currentUser = null;
+        let currentCourse = null;
+        let currentLessonIndex = 0;
+
+        // Tab switching
+        function switchTab(tab) {
+            document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            if (tab === 'login') {
+                document.querySelectorAll('.login-tab')[0].classList.add('active');
+                document.getElementById('loginTab').classList.add('active');
+            } else {
+                document.querySelectorAll('.login-tab')[1].classList.add('active');
+                document.getElementById('registerTab').classList.add('active');
+            }
+        }
+
+        // Handle login
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const name = email.split('@')[0];
+            
+            currentUser = { name: name, email: email };
+            localStorage.setItem('trainingUser', JSON.stringify(currentUser));
+            
+            showDashboard();
+        }
+
+        // Handle register
+        function handleRegister(event) {
+            event.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            
+            currentUser = { name: name, email: email };
+            localStorage.setItem('trainingUser', JSON.stringify(currentUser));
+            
+            alert('Rejestracja zakończona pomyślnie!');
+            showDashboard();
+        }
+
+        // Handle logout
+        function handleLogout() {
+            currentUser = null;
+            localStorage.removeItem('trainingUser');
+            
+            document.getElementById('loginContainer').style.display = 'flex';
+            document.getElementById('dashboardContainer').classList.remove('active');
+            document.getElementById('courseViewer').classList.remove('active');
+        }
+
+        // Show dashboard
+        function showDashboard() {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('dashboardContainer').classList.add('active');
+            document.getElementById('courseViewer').classList.remove('active');
+            
+            document.getElementById('userName').textContent = currentUser.name;
+            
+            renderCourses();
+        }
+
+        // Render courses
+        function renderCourses() {
+            const grid = document.getElementById('coursesGrid');
+            grid.innerHTML = '';
+            
+            coursesData.forEach(course => {
+                const card = document.createElement('div');
+                card.className = 'course-card';
+                card.onclick = () => openCourse(course);
+                
+                card.innerHTML = `
+                    <div class="course-thumbnail">${course.icon}</div>
+                    <div class="course-info">
+                        <h3>${course.title}</h3>
+                        <p>${course.description}</p>
+                        <div class="course-meta">
+                            <span class="course-duration">⏱️ ${course.duration}</span>
+                            <span class="course-lessons">${course.lessons} lekcji</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${course.progress}%"></div>
+                        </div>
+                        <div class="progress-text">${course.progress}% ukończone</div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+
+        // Open course
+        function openCourse(course) {
+            currentCourse = course;
+            currentLessonIndex = 0;
+            
+            document.getElementById('dashboardContainer').classList.remove('active');
+            document.getElementById('courseViewer').classList.add('active');
+            
+            document.getElementById('courseTitle').textContent = course.title;
+            
+            renderLessons();
+            renderMaterials();
+            loadLesson(0);
+        }
+
+        // Back to dashboard
+        function backToDashboard() {
+            document.getElementById('courseViewer').classList.remove('active');
+            document.getElementById('dashboardContainer').classList.add('active');
+        }
+
+        // Render lessons
+        function renderLessons() {
+            const container = document.getElementById('lessonsContainer');
+            container.innerHTML = '';
+            
+            currentCourse.videos.forEach((lesson, index) => {
+                const item = document.createElement('div');
+                item.className = 'lesson-item';
+                if (index === currentLessonIndex) item.classList.add('active');
+                if (index < currentLessonIndex) item.classList.add('completed');
+                
+                item.onclick = () => loadLesson(index);
+                
+                item.innerHTML = `
+                    <div class="lesson-number">${index + 1}</div>
+                    <div class="lesson-info">
+                        <div class="lesson-title">${lesson.title}</div>
+                        <div class="lesson-duration">${lesson.duration}</div>
+                    </div>
+                `;
+                
+                container.appendChild(item);
+            });
+        }
+
+        // Load lesson
+        function loadLesson(index) {
+            currentLessonIndex = index;
+            const lesson = currentCourse.videos[index];
+            
+            document.getElementById('lessonTitle').textContent = lesson.title;
+            document.getElementById('lessonDescription').textContent = lesson.description;
+            document.getElementById('videoIframe').src = lesson.url;
+            
+            renderLessons();
+        }
+
+        // Render materials
+        function renderMaterials() {
+            const container = document.getElementById('materialsContainer');
+            container.innerHTML = '';
+            
+            currentCourse.materials.forEach(material => {
+                const item = document.createElement('div');
+                item.className = 'material-item';
+                
+                item.innerHTML = `
+                    <span class="material-icon">${material.icon}</span>
+                    <div class="material-info">
+                        <div class="material-name">${material.name}</div>
+                        <div class="material-size">${material.size}</div>
+                    </div>
+                    <button class="download-btn" onclick="alert('Pobieranie: ${material.name}')">Pobierz</button>
+                `;
+                
+                container.appendChild(item);
+            });
+        }
+
+        // Check if user is logged in on page load
+        window.addEventListener('load', function() {
+            const savedUser = localStorage.getItem('trainingUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                showDashboard();
+            }
+        });
+    </script>
+</body>
+</html>
