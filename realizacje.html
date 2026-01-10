@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio G-Record - Zobacz nasze realizacje wideo, projekty i case studies">
+    <title>Realizacje - G-Record</title>
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">G-Record</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="uslugi.html">Usługi</a></li>
+                <li><a href="realizacje.html" class="active">Realizacje</a></li>
+                <li><a href="o-nas.html">O nas</a></li>
+                <li><a href="sprzet.html">Sprzęt</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="polityka.html">Polityka</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-overlay"></div>
+        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/4bd4a165-d68f-4619-b5cb-4ab36e7be085.png" alt="Nasze realizacje" class="hero-bg">
+        <div class="hero-content">
+            <h1>Nasze realizacje</h1>
+            <p>Zobacz projekty, które stworzyliśmy dla naszych klientów</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter -->
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Wszystkie</button>
+                <button class="filter-btn" data-filter="eventy">Eventy</button>
+                <button class="filter-btn" data-filter="kursy">Kursy online</button>
+                <button class="filter-btn" data-filter="streaming">Streaming</button>
+                <button class="filter-btn" data-filter="firmowe">Filmy firmowe</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item" data-category="eventy">
+                    <div class="portfolio-image">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/4bd4a165-d68f-4619-b5cb-4ab36e7be085.png" alt="Konferencja biznesowa">
+                        <div class="portfolio-overlay">
+                            <h3>Konferencja Biznesowa 2024</h3>
+                            <p>Nagranie wielokamerowe konferencji dla 200 uczestników</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Event</span>
+                        <h3>Konferencja Biznesowa 2024</h3>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-category="kursy">
+                    <div class="portfolio-image">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/1abe72a4-9347-4c94-bc3a-2ee39abf86f6.png" alt="Kurs online">
+                        <div class="portfolio-overlay">
+                            <h3>Kurs Marketingu Cyfrowego</h3>
+                            <p>20 lekcji wideo z animacjami i materiałami dodatkowymi</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Kurs</span>
+                        <h3>Kurs Marketingu Cyfrowego</h3>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item" data-category="streaming">
+                    <div class="portfolio-image">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/aabbab9b-a726-467b-ac33-5ec010c8f8a5.png" alt="Streaming">
+                        <div class="portfolio-overlay">
+                            <h3>Webinar na żywo</h3>
+                            <p>Streaming dla 500+ widzów z interakcją na żywo</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Streaming</span>
+                        <h3>Webinar na żywo</h3>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-item" data-category="firmowe">
+                    <div class="portfolio-image">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/4bb2a8df-dacc-4ae0-b924-71dcfae39700.png" alt="Film firmowy">
+                        <div class="portfolio-overlay">
+                            <h3>Film promocyjny firmy</h3>
+                            <p>Prezentacja firmy i jej wartości w 3-minutowym filmie</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Firmowy</span>
+                        <h3>Film promocyjny firmy</h3>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="portfolio-item" data-category="kursy">
+                    <div class="portfolio-image">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/cd278341-f18b-4836-b932-2f6862b82407.png" alt="Szkolenie">
+                        <div class="portfolio-overlay">
+                            <h3>Szkolenie BHP</h3>
+                            <p>Seria materiałów szkoleniowych dla pracowników</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Kurs</span>
+                        <h3>Szkolenie BHP</h3>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="portfolio-item" data-category="eventy">
+                    <div class="portfolio-image">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/853ec482-ae6a-4e91-80d2-2900a6c96ec0.png" alt="Event firmowy">
+                        <div class="portfolio-overlay">
+                            <h3>Gala firmowa</h3>
+                            <p>Pełna obsługa wideo wydarzenia integracyjnego</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Event</span>
+                        <h3>Gala firmowa</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase -->
+    <section class="video-showcase">
+        <div class="container">
+            <h2 class="section-title">Przykładowe realizacje wideo</h2>
+            <p class="section-subtitle">Zobacz fragmenty naszych projektów</p>
+            <div class="video-grid">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Co mówią nasi klienci</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Profesjonalna obsługa od początku do końca. Nagranie naszej konferencji przeszło nasze oczekiwania. Polecam!"</p>
+                    <div class="testimonial-author">
+                        <strong>Anna Kowalska</strong>
+                        <span>Dyrektor HR, TechCorp</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Dzięki G-Record stworzyliśmy kompletny kurs online dla naszych pracowników. Jakość materiałów jest wybitna."</p>
+                    <div class="testimonial-author">
+                        <strong>Piotr Nowak</strong>
+                        <span>CEO, EduPro</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Streaming z naszego eventu przebiegł bez zakłóceń. Zespół G-Record to prawdziwi profesjonaliści."</p>
+                    <div class="testimonial-author">
+                        <strong>Maria Wiśniewska</strong>
+                        <span>Event Manager, EventPlus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Chcesz zobaczyć więcej?</h2>
+            <p>Skontaktuj się z nami, a pokażemy Ci pełne portfolio naszych realizacji</p>
+            <div class="cta-buttons">
+                <a href="tel:+48607200066" class="cta-button cta-primary">
+                    <span class="cta-icon">📞</span>
+                    ZADZWOŃ: +48 607 200 066
+                </a>
+                <a href="kontakt.html" class="cta-button cta-secondary">NAPISZ DO NAS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>G-Record</h3>
+                <p>Profesjonalna produkcja wideo<br>Łączymy świat rzeczywisty z cyfrowym</p>
+            </div>
+            <div class="footer-section">
+                <h3>Nawigacja</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="uslugi.html">Usługi</a></li>
+                    <li><a href="realizacje.html">Realizacje</a></li>
+                    <li><a href="o-nas.html">O nas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p>Zagnańska 84a<br>25-558 Kielce, Polska</p>
+                <p>Tel: +48 607 200 066<br>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1a696e6f7e73755a7d37687f7975687e346a76">[email&#160;protected]</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Informacje</h3>
+                <ul>
+                    <li><a href="sprzet.html">Sprzęt</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="polityka.html">Polityka prywatności</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 G-Record. Wszystkie prawa zastrzeżone. | NIP: 732947723</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="./script.js"></script>
+</body>
+</html>

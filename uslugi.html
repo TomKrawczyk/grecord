@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Usługi produkcji wideo - wynajem sali, warsztaty, nagrywanie eventów, tworzenie kursów online">
+    <title>Usługi - G-Record</title>
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">G-Record</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="uslugi.html" class="active">Usługi</a></li>
+                <li><a href="realizacje.html">Realizacje</a></li>
+                <li><a href="o-nas.html">O nas</a></li>
+                <li><a href="sprzet.html">Sprzęt</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="polityka.html">Polityka</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-overlay"></div>
+        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/ca04b91f-34dd-43a6-b189-a8ca629db6e7.png" alt="Nasze usługi" class="hero-bg">
+        <div class="hero-content">
+            <h1>Nasze usługi</h1>
+            <p>Kompleksowe rozwiązania w zakresie produkcji wideo</p>
+        </div>
+    </section>
+
+    <!-- Services Detail -->
+    <section class="services-detail">
+        <div class="container">
+            <!-- Service 1 -->
+            <div class="service-detail-card" id="wynajem">
+                <div class="service-detail-content">
+                    <div class="service-detail-text">
+                        <h2>Wynajem salki konferencyjnej</h2>
+                        <p class="service-price">Od 300 zł / dzień</p>
+                        <p>Profesjonalna sala konferencyjna wyposażona w najnowocześniejszy sprzęt do nagrań, szkoleń i konferencji online.</p>
+                        <h3>Co oferujemy:</h3>
+                        <ul class="service-features">
+                            <li>Przestronna sala z profesjonalnym oświetleniem</li>
+                            <li>Kamery 4K i sprzęt nagraniowy</li>
+                            <li>Monitor interaktywny Newline</li>
+                            <li>Profesjonalny system audio</li>
+                            <li>Możliwość streamingu na żywo</li>
+                            <li>Obsługa techniczna</li>
+                        </ul>
+                        <h3>Idealne dla:</h3>
+                        <p>Szkoleń firmowych, webinarów, nagrań kursów online, spotkań biznesowych, prezentacji produktów.</p>
+                        <a href="kontakt.html" class="cta-button">Zarezerwuj salę</a>
+                    </div>
+                    <div class="service-detail-image">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/ca04b91f-34dd-43a6-b189-a8ca629db6e7.png" alt="Sala konferencyjna">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-detail-card" id="warsztaty">
+                <div class="service-detail-content reverse">
+                    <div class="service-detail-text">
+                        <h2>Warsztaty wideo</h2>
+                        <p class="service-price">Od 1 000 zł / warsztat</p>
+                        <p>Praktyczne szkolenia z produkcji wideo, montażu i streamingu prowadzone przez doświadczonych specjalistów.</p>
+                        <h3>Program warsztatów:</h3>
+                        <ul class="service-features">
+                            <li>Podstawy obsługi kamery i kompozycji kadru</li>
+                            <li>Profesjonalne oświetlenie w praktyce</li>
+                            <li>Nagrywanie dźwięku wysokiej jakości</li>
+                            <li>Podstawy montażu wideo</li>
+                            <li>Streaming na żywo - konfiguracja i realizacja</li>
+                            <li>Praktyczne ćwiczenia z własnym sprzętem</li>
+                        </ul>
+                        <h3>Dla kogo:</h3>
+                        <p>Zespołów marketingowych, content creatorów, firm planujących własną produkcję wideo, nauczycieli i trenerów.</p>
+                        <a href="kontakt.html" class="cta-button">Zapisz się na warsztat</a>
+                    </div>
+                    <div class="service-detail-image">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/cd278341-f18b-4836-b932-2f6862b82407.png" alt="Warsztaty wideo">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-detail-card" id="eventy">
+                <div class="service-detail-content">
+                    <div class="service-detail-text">
+                        <h2>Nagrywanie eventów</h2>
+                        <p class="service-price">Od 500 zł / event</p>
+                        <p>Profesjonalne nagrywanie konferencji, szkoleń, eventów firmowych i prezentacji z wykorzystaniem wielu kamer.</p>
+                        <h3>Zakres usługi:</h3>
+                        <ul class="service-features">
+                            <li>Nagrywanie wielokamerowe (do 4 kamer)</li>
+                            <li>Profesjonalne oświetlenie i dźwięk</li>
+                            <li>Możliwość streamingu na żywo</li>
+                            <li>Montaż i postprodukcja</li>
+                            <li>Nagrywanie prezentacji i slajdów</li>
+                            <li>Dostawa materiału w wybranym formacie</li>
+                        </ul>
+                        <h3>Rodzaje eventów:</h3>
+                        <p>Konferencje, szkolenia, seminaria, prezentacje produktów, eventy firmowe, wykłady, panele dyskusyjne.</p>
+                        <a href="kontakt.html" class="cta-button">Zamów nagranie</a>
+                    </div>
+                    <div class="service-detail-image">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/4bd4a165-d68f-4619-b5cb-4ab36e7be085.png" alt="Nagrywanie eventów">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-detail-card" id="kursy">
+                <div class="service-detail-content reverse">
+                    <div class="service-detail-text">
+                        <h2>Tworzenie kursów online</h2>
+                        <p class="service-price">Od 4 999 zł / projekt</p>
+                        <p>Kompleksowa produkcja kursów online - od koncepcji i scenariusza po gotowy materiał edukacyjny gotowy do publikacji.</p>
+                        <h3>Pełen zakres usług:</h3>
+                        <ul class="service-features">
+                            <li>Konsultacja i planowanie struktury kursu</li>
+                            <li>Pomoc w przygotowaniu scenariusza</li>
+                            <li>Profesjonalne nagrania wideo (green screen, studio)</li>
+                            <li>Montaż z animacjami i grafiką</li>
+                            <li>Nagrywanie materiałów dodatkowych</li>
+                            <li>Optymalizacja pod platformy e-learningowe</li>
+                            <li>Automatyzacja i integracja z systemami LMS</li>
+                        </ul>
+                        <h3>Dla kogo:</h3>
+                        <p>Trenerów, ekspertów, firm szkoleniowych, uczelni, działów HR, przedsiębiorców tworzących produkty edukacyjne.</p>
+                        <a href="kontakt.html" class="cta-button">Stwórz kurs</a>
+                    </div>
+                    <div class="service-detail-image">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/804080/2026-01-09/1abe72a4-9347-4c94-bc3a-2ee39abf86f6.png" alt="Tworzenie kursów">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Comparison -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Porównanie pakietów</h2>
+            <div class="pricing-table">
+                <div class="pricing-column">
+                    <h3>Podstawowy</h3>
+                    <p class="price">Od 300 zł</p>
+                    <ul>
+                        <li>✓ Wynajem sali (4h)</li>
+                        <li>✓ Podstawowy sprzęt</li>
+                        <li>✓ Jedna kamera</li>
+                        <li>✗ Obsługa techniczna</li>
+                        <li>✗ Montaż</li>
+                    </ul>
+                    <a href="kontakt.html" class="cta-button">Wybierz</a>
+                </div>
+                <div class="pricing-column featured">
+                    <div class="badge">Polecany</div>
+                    <h3>Profesjonalny</h3>
+                    <p class="price">Od 1 500 zł</p>
+                    <ul>
+                        <li>✓ Wynajem sali (8h)</li>
+                        <li>✓ Pełny sprzęt</li>
+                        <li>✓ Wiele kamer</li>
+                        <li>✓ Obsługa techniczna</li>
+                        <li>✓ Podstawowy montaż</li>
+                    </ul>
+                    <a href="kontakt.html" class="cta-button cta-primary">Wybierz</a>
+                </div>
+                <div class="pricing-column">
+                    <h3>Premium</h3>
+                    <p class="price">Od 5 000 zł</p>
+                    <ul>
+                        <li>✓ Pełna produkcja</li>
+                        <li>✓ Najlepszy sprzęt</li>
+                        <li>✓ Wielokamerowe nagranie</li>
+                        <li>✓ Pełna obsługa</li>
+                        <li>✓ Zaawansowany montaż</li>
+                        <li>✓ Animacje i grafika</li>
+                    </ul>
+                    <a href="kontakt.html" class="cta-button">Wybierz</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Potrzebujesz indywidualnej wyceny?</h2>
+            <p>Skontaktuj się z nami - przygotujemy ofertę dopasowaną do Twoich potrzeb</p>
+            <div class="cta-buttons">
+                <a href="tel:+48607200066" class="cta-button cta-primary">
+                    <span class="cta-icon">📞</span>
+                    ZADZWOŃ: +48 607 200 066
+                </a>
+                <a href="kontakt.html" class="cta-button cta-secondary">FORMULARZ KONTAKTOWY</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>G-Record</h3>
+                <p>Profesjonalna produkcja wideo<br>Łączymy świat rzeczywisty z cyfrowym</p>
+            </div>
+            <div class="footer-section">
+                <h3>Nawigacja</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="uslugi.html">Usługi</a></li>
+                    <li><a href="realizacje.html">Realizacje</a></li>
+                    <li><a href="o-nas.html">O nas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p>Zagnańska 84a<br>25-558 Kielce, Polska</p>
+                <p>Tel: +48 607 200 066<br>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7b4b3b2a3aea887a0eab5a2a4a8b5a3e9b7ab">[email&#160;protected]</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Informacje</h3>
+                <ul>
+                    <li><a href="sprzet.html">Sprzęt</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="polityka.html">Polityka prywatności</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 G-Record. Wszystkie prawa zastrzeżone. | NIP: 732947723</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="./script.js"></script>
+</body>
+</html>
