@@ -78,7 +78,7 @@ nav {
 }
 
 .logo:hover {
-    color: #2563eb;
+    color: #c87d4e;
 }
 
 .nav-links {
@@ -104,7 +104,7 @@ nav {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #2563eb;
+    background-color: #c87d4e;
     transition: width 0.3s ease;
 }
 
@@ -115,7 +115,7 @@ nav {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #2563eb;
+    color: #c87d4e;
 }
 
 .mobile-menu-btn {
@@ -253,6 +253,7 @@ nav {
     text-align: center;
 }
 
+
 .cta-buttons {
     display: flex;
     gap: 20px;
@@ -275,14 +276,14 @@ nav {
 }
 
 .cta-primary {
-    background-color: #2563eb;
+    background-color: #dc2626;
     color: white;
 }
 
 .cta-primary:hover {
-    background-color: #1d4ed8;
+    background-color: #b91c1c;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
 }
 
 .cta-secondary {
@@ -299,6 +300,7 @@ nav {
 .cta-icon {
     font-size: 20px;
 }
+
 
 section {
     padding: 80px 20px;
@@ -321,6 +323,7 @@ section {
 .text-center {
     text-align: center;
 }
+
 
 .services-overview {
     background-color: white;
@@ -366,7 +369,7 @@ section {
 }
 
 .service-card .price {
-    color: #2563eb;
+    color: #c87d4e;
     font-size: 20px;
     font-weight: bold;
     padding: 0 20px 20px;
@@ -375,13 +378,13 @@ section {
 .service-link {
     display: inline-block;
     padding: 0 20px 20px;
-    color: #2563eb;
+    color: #c87d4e;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .service-link:hover {
-    color: #1d4ed8;
+    color: #b06a3d;
 }
 
 .services-detail {
@@ -417,7 +420,7 @@ section {
 }
 
 .service-price {
-    color: #2563eb;
+    color: #c87d4e;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -445,7 +448,7 @@ section {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #2563eb;
+    color: #c87d4e;
     font-weight: bold;
     font-size: 18px;
 }
@@ -456,6 +459,7 @@ section {
     object-fit: cover;
     border-radius: 8px;
 }
+
 
 .pricing-section {
     background-color: white;
@@ -484,7 +488,7 @@ section {
 
 .pricing-column.featured {
     background: white;
-    border: 3px solid #2563eb;
+    border: 3px solid #c87d4e;
     transform: scale(1.05);
 }
 
@@ -497,7 +501,7 @@ section {
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #2563eb;
+    background-color: #c87d4e;
     color: white;
     padding: 5px 20px;
     border-radius: 20px;
@@ -511,7 +515,7 @@ section {
 }
 
 .pricing-column .price {
-    color: #2563eb;
+    color: #c87d4e;
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 30px;
@@ -528,6 +532,7 @@ section {
     padding: 10px 0;
     border-bottom: 1px solid #e0e0e0;
 }
+
 
 .why-us {
     background-color: #2a2a2a;
@@ -561,7 +566,7 @@ section {
 .feature-number {
     font-size: 48px;
     font-weight: bold;
-    color: #2563eb;
+    color: #c87d4e;
     margin-bottom: 20px;
 }
 
@@ -578,6 +583,7 @@ section {
 .feature-item p {
     color: #d0d0d0;
 }
+
 
 .video-showcase {
     background-color: white;
@@ -608,6 +614,7 @@ section {
     border-radius: 12px;
 }
 
+
 .portfolio-section {
     background-color: #f5f0ea;
 }
@@ -634,9 +641,9 @@ section {
 
 .filter-btn:hover,
 .filter-btn.active {
-    background-color: #2563eb;
+    background-color: #c87d4e;
     color: white;
-    border-color: #2563eb;
+    border-color: #c87d4e;
 }
 
 .portfolio-grid {
@@ -706,7 +713,7 @@ section {
 
 .portfolio-tag {
     display: inline-block;
-    background-color: #2563eb;
+    background-color: #c87d4e;
     color: white;
     padding: 5px 15px;
     border-radius: 20px;
@@ -717,6 +724,7 @@ section {
 .portfolio-info h3 {
     color: #5a5a5a;
 }
+
 
 .testimonials-section {
     background-color: white;
@@ -753,6 +761,7 @@ section {
     color: #7a7a7a;
     font-size: 14px;
 }
+
 
 .about-story {
     background-color: white;
@@ -847,7 +856,7 @@ section {
 }
 
 .team-role {
-    color: #2563eb;
+    color: #c87d4e;
     font-weight: 600;
     margin-bottom: 15px;
 }
@@ -869,7 +878,7 @@ section {
     transform: translateX(-50%);
     width: 2px;
     height: 100%;
-    background-color: #2563eb;
+    background-color: #c87d4e;
 }
 
 .timeline-item {
@@ -889,7 +898,7 @@ section {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #2563eb;
+    background-color: #c87d4e;
     border: 4px solid #f5f0ea;
     z-index: 1;
 }
@@ -897,7 +906,7 @@ section {
 .timeline-date {
     text-align: right;
     font-weight: bold;
-    color: #2563eb;
+    color: #c87d4e;
     font-size: 18px;
 }
 
@@ -912,6 +921,7 @@ section {
     color: #5a5a5a;
     margin-bottom: 10px;
 }
+
 
 .equipment-intro {
     background-color: white;
@@ -973,7 +983,7 @@ section {
 }
 
 .equipment-spec {
-    color: #2563eb;
+    color: #c87d4e;
     font-weight: 600;
     margin-bottom: 15px;
 }
@@ -995,7 +1005,7 @@ section {
     content: "•";
     position: absolute;
     left: 0;
-    color: #2563eb;
+    color: #c87d4e;
     font-size: 20px;
 }
 
@@ -1008,6 +1018,7 @@ section {
 .studio-features {
     background-color: white;
 }
+
 
 .contact-page {
     background-color: #f5f0ea;
@@ -1061,7 +1072,7 @@ section {
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: #c87d4e;
 }
 
 .form-group textarea {
@@ -1109,7 +1120,7 @@ section {
 }
 
 .contact-info-item a {
-    color: #2563eb;
+    color: #c87d4e;
     font-weight: 600;
 }
 
@@ -1146,7 +1157,7 @@ section {
 }
 
 .social-link:hover {
-    background-color: #2563eb;
+    background-color: #c87d4e;
     transform: translateY(-5px);
 }
 
@@ -1198,6 +1209,7 @@ section {
     line-height: 1.8;
 }
 
+
 .policy-content {
     background-color: white;
     padding: 80px 20px;
@@ -1240,7 +1252,7 @@ section {
 }
 
 .policy-text a {
-    color: #2563eb;
+    color: #c87d4e;
     font-weight: 600;
 }
 
@@ -1277,18 +1289,19 @@ section {
 }
 
 .policy-box a:hover {
-    color: #2563eb;
+    color: #c87d4e;
 }
 
 .download-link {
     display: block;
-    color: #2563eb;
+    color: #c87d4e;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
+
 .cta-section {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    background: linear-gradient(135deg, #c87d4e 0%, #b06a3d 100%);
     color: white;
     text-align: center;
 }
@@ -1303,6 +1316,7 @@ section {
     margin-bottom: 30px;
 }
 
+/* ===== CHAT WIDGET ===== */
 .chat-widget {
     position: fixed;
     bottom: 20px;
@@ -1314,11 +1328,11 @@ section {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    background: linear-gradient(135deg, #c87d4e 0%, #b06a3d 100%);
     color: white;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 4px 15px rgba(200, 125, 78, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1329,15 +1343,15 @@ section {
 
 .chat-button:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+    box-shadow: 0 6px 20px rgba(200, 125, 78, 0.6);
 }
 
 @keyframes pulse {
     0%, 100% {
-        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        box-shadow: 0 4px 15px rgba(200, 125, 78, 0.4);
     }
     50% {
-        box-shadow: 0 4px 25px rgba(37, 99, 235, 0.7);
+        box-shadow: 0 4px 25px rgba(200, 125, 78, 0.7);
     }
 }
 
@@ -1372,7 +1386,7 @@ section {
 }
 
 .chat-header {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    background: linear-gradient(135deg, #c87d4e 0%, #b06a3d 100%);
     color: white;
     padding: 20px;
     display: flex;
@@ -1421,9 +1435,9 @@ section {
 }
 
 .chat-option:hover {
-    background: #2563eb;
+    background: #c87d4e;
     color: white;
-    border-color: #2563eb;
+    border-color: #c87d4e;
     transform: translateX(5px);
 }
 
@@ -1461,7 +1475,7 @@ section {
 .quick-contact-form button {
     width: 100%;
     padding: 12px;
-    background: #2563eb;
+    background: #c87d4e;
     color: white;
     border: none;
     border-radius: 8px;
@@ -1472,14 +1486,14 @@ section {
 }
 
 .quick-contact-form button:hover {
-    background: #1d4ed8;
+    background: #b06a3d;
 }
 
 .back-button {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    color: #2563eb;
+    color: #c87d4e;
     background: none;
     border: none;
     cursor: pointer;
@@ -1491,6 +1505,7 @@ section {
 .back-button:hover {
     text-decoration: underline;
 }
+
 
 footer {
     background-color: #2a2a2a;
@@ -1532,7 +1547,7 @@ footer {
 }
 
 .footer-section a:hover {
-    color: #2563eb;
+    color: #c87d4e;
 }
 
 .footer-bottom {
@@ -1541,6 +1556,7 @@ footer {
     border-top: 1px solid #4a4a4a;
     color: #d0d0d0;
 }
+
 
 .scroll-reveal {
     opacity: 0;
@@ -1552,6 +1568,7 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 @media (max-width: 1024px) {
     .equipment-grid {
